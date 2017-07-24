@@ -19,7 +19,7 @@ router.post('/login', (req, res, next) => {
   })
     .then(user => {
       if (!user) res.status(401).send('User not found');
-      else if (!user.hasMatchingPassword(req.body.password) res.status(401).send('Incorrect password');
+      else if (!user.hasMatchingPassword(req.body.password)) res.status(401).send('Incorrect password');
       else {
         req.login(user, err => {
           if (err) next(err);

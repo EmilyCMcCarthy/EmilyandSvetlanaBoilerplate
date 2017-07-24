@@ -4,7 +4,7 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-import User from '../db/models/user.js';
+const User = require('./db/models/user.js');
 
 
 // Logging middleware
@@ -35,7 +35,7 @@ app.get('*', function (req, res, next) {
 });
 
 // we will need our sequelize instance from somewhere
-const db = require('./db');
+const db = require('./db/index.js');
 // we should do this in the same place we've set up express-session
 
 
